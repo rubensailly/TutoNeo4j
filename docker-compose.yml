@@ -1,0 +1,30 @@
+services:
+  notebook:
+    build:
+        context: ./notebook/
+        dockerfile: Dockerfile
+    container_name: notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebook:/home/jovyan/work
+    environment:
+      JUPYTER_ENABLE_LAB: "yes"
+      GRANT_SUDO: "yes"
+    restart: unless-stopped
+  neo4j:
+    image: neo4j:enterprise
+    container_name: neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+    environment:
+      NEO4J_AUTH: "neo4j/strongpassword"
+      NEO4J_PLUGINS: '["graph-data-science"]'
+      NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:
