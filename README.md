@@ -1,2 +1,2 @@
 # Tutoriel Neo4j - FIL A3 
-Ruben SAILLY, Frédéric EGENSCHEVILLER, Clément REPEL, Élias MORIO
+Ruben SAILLY, Frédéric EGENSCHEVILLER, Clément REPEL, Elias MORIO
